@@ -32,7 +32,7 @@ sed -i -r "s/(client localhost \{)/client ipv4{\n\tipv4addr = 0.0.0.0\/0\n\tsecr
 sed -i -r "s/(client localhost \{)/client ipv6{\n\tipv6addr = ::\n\tsecret = $radpass\n}\n\1/g" /etc/raddb/clients.conf
 sed -i -r "s/testing123/$radpass/g" /etc/raddb/clients.conf
 if [ ! -z "$sql_server" ]; then
-  sql_driver=$sql_server
+  sql_driver='postgresql'
   sed -i -r "s/(driver =.*)/\1\n\tserver = \"$sql_server\"\n\tlogin = \"$sql_login\"\n\tpassword = \"$sql_passwd\"/g" /etc/raddb/mods-available/sql
 else
   sql_driver='sqlite'
