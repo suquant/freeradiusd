@@ -2,8 +2,8 @@ FROM alpine:edge
 
 # install common packages
 RUN apk update && \
-	apk add freeradius freeradius-postgresql freeradius-pam freeradius-redis \
-	openssl make sqlite
+	apk add freeradius freeradius-sqlite freeradius-postgresql freeradius-pam freeradius-redis \
+	openssl make sqlite bash
 
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 
