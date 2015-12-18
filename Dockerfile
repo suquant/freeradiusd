@@ -6,6 +6,7 @@ RUN apk update && \
 	openssl make sqlite bash
 
 COPY entrypoint.sh /usr/bin/entrypoint.sh
+COPY default /etc/raddb/sites-available/default
 
 VOLUME ["/var/lib/raddb"]
 
