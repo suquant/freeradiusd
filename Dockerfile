@@ -8,6 +8,7 @@ RUN apk update && \
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 COPY default /etc/raddb/sites-available/default
 COPY mschap /etc/raddb/mods-available/mschap
+COPY pap /etc/raddb/mods-available/pap
 
 VOLUME ["/var/lib/raddb"]
 
