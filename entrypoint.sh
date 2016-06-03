@@ -31,6 +31,7 @@ sed -i "s/allow_vulnerable_openssl.*/allow_vulnerable_openssl = yes/" /etc/raddb
 sed -i -r "s/(client localhost \{)/client ipv4{\n\tipv4addr = 0.0.0.0\/0\n\tsecret \= $radpass\n}\n\1/g" /etc/raddb/clients.conf
 sed -i -r "s/(client localhost \{)/client ipv6{\n\tipv6addr = ::\n\tsecret = $radpass\n}\n\1/g" /etc/raddb/clients.conf
 sed -i -r "s/testing123/$radpass/g" /etc/raddb/clients.conf
+sed -i "s/-sql/sql/" /etc/raddb/sites-available/default
 if [ ! -z "$sql_server" ]; then
   sql_driver='postgresql'
   sed -i -r "s/(driver =.*)/\1\n\tserver = \"$sql_server\"\n\tlogin = \"$sql_login\"\n\tpassword = \"$sql_passwd\"/g" /etc/raddb/mods-available/sql
