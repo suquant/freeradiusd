@@ -55,6 +55,7 @@ sed -i -r "s/dialect =.*/dialect = \"$sql_driver\"/g" /etc/raddb/mods-available/
 
 ln -s /etc/raddb/mods-available/sql /etc/raddb/mods-enabled/sql
 sed -i '0,/md5/{s/md5/mschapv2/}' /etc/raddb/mods-available/eap
+rm /etc/raddb/mods-enabled/eap
 
 chown -R radius /var/lib/raddb
 
